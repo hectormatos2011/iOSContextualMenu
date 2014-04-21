@@ -7,16 +7,16 @@ Well, you've come to the right place. Hopefully this will help my fellow iOS Dev
 
 ## Installation
 
-iOSLongPressContextualMenu is available through [CocoaPods](http://cocoapods.org), to install
+iOSContextualMenu is available through [CocoaPods](http://cocoapods.org), to install
 it simply add the following line to your Podfile:
 
-    pod "iOSLongPressContextualMenu"
+    pod "iOSContextualMenu"
 
 ## Getting Started
 To run the example project; clone the repo, and run `pod install` from the Example directory first. A full blown example is included there. If you don't want to do that, then read ahead!
 
 ##Overview
-The iOSLongPressContextualMenu uses a similar dataSource/delegate paradigm like UITableView, UICollectionView, UIPickerView, etc.
+The iOSContextualMenu uses a similar dataSource/delegate paradigm like UITableView, UICollectionView, UIPickerView, etc.
 
 To implement in your code, follow these steps (This code in these steps is for putting a contextual menu in every cell of a UICollectionView. In this example, I'm adding the contextual menu code inside of my own UICollectionViewCell subclass. Feel free to add a contextual menu to any UIView or a subclass of UIView if this isn't what you want. The following example will also work for UITableView and it's UITableViewCell subclasses.): 
 
@@ -36,7 +36,7 @@ After creating your UIView, add this line to add a contextual menu to it. NOTE: 
 {
 	self = [super initWithFrame:frame];
 	if (self) {
-		[BAMContextualMenu addContextualMenuToView:self.contentView delegate:self dataSource:self activateOption:kBAMContextualMenuActivateOptionLongPress];
+		[BAMContextualMenu addContextualMenuToView:self.contentView delegate:self dataSource:self activateOption:kBAMContextualMenuActivateOption];
 	}
 	return self;
 }
@@ -139,5 +139,5 @@ Hector Matos, hectormatos2011@gmail.com
 
 ## License
 
-iOSLongPressContextualMenu is available under the MIT license. See the LICENSE file for more info.
+iOSContextualMenu is available under the MIT license. See the LICENSE file for more info.
 
