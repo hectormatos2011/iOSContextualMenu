@@ -1,4 +1,4 @@
-# iOSLongPressContextualMenu
+# iOSContextualMenu
 Here lies an easy and awesome way to create contextual menus in iOS. Do you want to access a quick and beautiful popup menu by tapping on a sprite for your game? Do you want to do what Pinterest did and have a contextual menu popup in your UICollectionView by long pressing on a cell?
 
 Well, you've come to the right place. Hopefully this will help my fellow iOS Developers create beautiful UX for their applications quickly and easily!
