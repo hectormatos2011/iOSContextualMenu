@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                    = "iOSContextualMenu"
-  s.version                 = "1.0.0"
+  s.version                 = "1.1.0"
   s.summary                 = "An easy-to-plug-in Long Press Contextual Menu for iOS inspired by Pinterest."
   s.homepage                = "https://github.com/hectormatos2011/iOSContextualMenu.git"
   s.license                 = 'MIT'
