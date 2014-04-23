@@ -34,6 +34,7 @@ typedef enum HMContextualMenuActivateOption : NSUInteger {
 
 @interface BAMContextualMenu : UIView
 
+@property (nonatomic) BOOL menuIsShowing; //Flag to turn off the ability to activate the popup menu. Defaults to YES but will be NO if menuItems array is nil or empty.
 @property (nonatomic) BOOL shouldActivateMenu; //Flag to turn off the ability to activate the popup menu. Defaults to YES but will be NO if menuItems array is nil or empty.
 @property (nonatomic) BOOL shouldHighlightOutwards; //Defaults to YES. This flag determines whether or not the menu item will animate outwards on highlight. Or just stay in place.
 
@@ -62,6 +63,11 @@ typedef enum HMContextualMenuActivateOption : NSUInteger {
 - (UIView *)contextualMenu:(BAMContextualMenu *)contextualMenu viewForMenuItemAtIndex:(NSUInteger)index;
 
 @optional
+//You would use this delegate method to pause a game or take action when contextual menu overlays your entire screen. For example, If my iOS game implemented this contextual menu by tapping on a character in motion, I would probably pause the game while it's up to give the user time to make a selection on the menu. This is one such example, feel free to use it in any way you would need it.
+- (void)contextualMenuActivated:(BAMContextualMenu *)contextualMenu;
+//This method could be used to undo any action taken in contextualMenuActivated:.
+- (void)contextualMenuDismissed:(BAMContextualMenu *)contextualMenu;
+
 - (void)contextualMenu:(BAMContextualMenu *)contextualMenu didSelectItemAtIndex:(NSUInteger)index;
 - (void)contextualMenu:(BAMContextualMenu *)contextualMenu didHighlightItemAtIndex:(NSUInteger)index;
 - (UIView *)contextualMenu:(BAMContextualMenu *)contextualMenu viewForHighlightedMenuItemAtIndex:(NSUInteger)index;

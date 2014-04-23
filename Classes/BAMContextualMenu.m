@@ -86,7 +86,6 @@
 	BOOL shouldRelayoutSubviews;
 	BOOL menuItemIsAnimating;
 	BOOL shouldSelectMenuItem;
-	BOOL menuIsShowing;
 }
 
 @property (nonatomic, weak) id <BAMContextualMenuDelegate> delegate;
@@ -105,7 +104,7 @@
 		self.dataSource = contextualDataSource;
 		self.shouldHighlightOutwards = YES;
 
-		menuIsShowing = NO;
+		_menuIsShowing = NO;
 
 		_menuItemDistancePadding = 30.0f;
 
@@ -422,7 +421,7 @@
 #pragma mark Presentation/Dismissal Method
 - (void)showMenuItems:(BOOL)show completion:(void (^)())completion
 {
-	menuIsShowing = show;
+	_menuIsShowing = show;
 	//totalCircle in this context means the circle from the starting location of the user's touch to the edge of the biggest menu item
 	CGFloat totalCircleRectX = startingLocation.x - (circleViewWidthHeight / 2.0) - _menuItemDistancePadding - biggestMenuItemWidthHeight;
 	CGFloat totalCircleRadius = startingLocation.x - totalCircleRectX;
@@ -431,6 +430,9 @@
 	[menuItemRectsInWindowArray removeAllObjects];
 
 	if (show) {
+		if (self.delegate && [self.delegate respondsToSelector:@selector(contextualMenuActivated:)]) {
+			[self.delegate contextualMenuActivated:self];
+		}
 		//Calculate proper angle offset
 		ZZScreenEdge screenCorner = (startingLocation.x < mainWindow.frame.size.width / 2.0) ? kZZScreenEdgeLeft : kZZScreenEdgeRight;
 
@@ -511,6 +513,9 @@
 									  }
 								  }];
 	} else {
+		if (self.delegate && [self.delegate respondsToSelector:@selector(contextualMenuDismissed:)]) {
+			[self.delegate contextualMenuDismissed:self];
+		}
 		//Animations for dismissal
 		[UIView animateKeyframesWithDuration:0.3
 									   delay:0.0
