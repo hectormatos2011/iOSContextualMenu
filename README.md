@@ -123,6 +123,22 @@ For even further customization, you could use your own view for the menu item's 
 }
 ```
 
+For some cases, a developer would want to add a contextual menu to a moving sprite in their game to access options for it (Ex. Defend, Attack, Run Away)
+In cases like this, you would probably want to pause your game to allow the user to select an option without affecting gameplay. To do this, you can implement the delegate methods contextualMenuActivated: and contextualMenuDismissed:
+
+```objectivec
+- (void)contextualMenuActivated:(BAMContextualMenu *)contextualMenu
+{
+	//Pause your game here.
+}
+
+- (void)contextualMenuDismissed:(BAMContextualMenu *)contextualMenu
+{
+	//Unpause your game here.
+}
+```
+
+
 Also, if you have need for this sort of thing, you can remove the contextualMenu at any time by calling removeContextualMenuFromView:.
 
 ```objectivec
