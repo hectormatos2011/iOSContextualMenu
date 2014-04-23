@@ -86,6 +86,7 @@
 	BOOL shouldRelayoutSubviews;
 	BOOL menuItemIsAnimating;
 	BOOL shouldSelectMenuItem;
+	BOOL menuIsShowing;
 }
 
 @property (nonatomic, weak) id <BAMContextualMenuDelegate> delegate;
@@ -103,6 +104,8 @@
 		self.delegate = contextualDelegate;
 		self.dataSource = contextualDataSource;
 		self.shouldHighlightOutwards = YES;
+
+		menuIsShowing = NO;
 
 		_menuItemDistancePadding = 30.0f;
 
@@ -333,9 +336,22 @@
 	}
 }
 
-- (void)tapActivated:(UITapGestureRecognizer *)tapGesture
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
-	startingLocation = [mainWindow convertPoint:containerView.center toWindow:mainWindow];
+	if (self.activateOption == kBAMContextualMenuActivateOptionTouchUp) {
+		CGRect viewRect = containerView.frame;
+
+		CGPoint touchLocation = point;
+		CGPoint gestureLocationInWindow = [containerView convertPoint:point toView:mainWindow];
+
+		startingLocation = CGPointMake((gestureLocationInWindow.x - touchLocation.x) + (viewRect.size.width / 2.0), (gestureLocationInWindow.y - touchLocation.y) + (viewRect.size.height / 2.0));
+	}
+
+	return [super hitTest:point withEvent:event];
+}
+
+- (void)tapActivated:(UIGestureRecognizer *)tapGesture
+{
 	startCircleView.center = startingLocation;
 
 	[self layoutMenuItemsIfNeeded];
@@ -406,6 +422,7 @@
 #pragma mark Presentation/Dismissal Method
 - (void)showMenuItems:(BOOL)show completion:(void (^)())completion
 {
+	menuIsShowing = show;
 	//totalCircle in this context means the circle from the starting location of the user's touch to the edge of the biggest menu item
 	CGFloat totalCircleRectX = startingLocation.x - (circleViewWidthHeight / 2.0) - _menuItemDistancePadding - biggestMenuItemWidthHeight;
 	CGFloat totalCircleRadius = startingLocation.x - totalCircleRectX;

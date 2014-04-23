@@ -242,10 +242,45 @@
 	UIView *separatorView = [[UIView alloc] initWithFrame:CGRectMake(activateOptionView.frame.origin.x / 2.0, activateOptionView.frame.origin.y + activateOptionView.frame.size.height, self.view.frame.size.width - activateOptionView.frame.origin.x, 1.0)];
 	separatorView.backgroundColor = [UIColor whiteColor];
 
+	//highlight outwards switch setup
+
+	UILabel *highlightOutwardsLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+	highlightOutwardsLabel.backgroundColor = [UIColor clearColor];
+	highlightOutwardsLabel.text = @"Animate Outwards on Highlight:";
+	highlightOutwardsLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:18.0];
+	highlightOutwardsLabel.textColor = [UIColor whiteColor];
+	highlightOutwardsLabel.textAlignment = NSTextAlignmentLeft;
+	highlightOutwardsLabel.alpha = 1.0;
+
+	[highlightOutwardsLabel sizeToFit];
+
+	UISwitch *highlightOutwardsSwitch = [[UISwitch alloc] init];
+	[highlightOutwardsSwitch addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
+
+	CGFloat highlightOutwardsViewHeight = MAX(highlightOutwardsSwitch.frame.size.height, highlightOutwardsLabel.frame.size.height);
+	UIView *highlightOutwardsView = [[UIView alloc] initWithFrame:CGRectMake(padding, activateOptionView.frame.origin.y - highlightOutwardsViewHeight - padding - padding, self.view.frame.size.width - (padding * 2.0), highlightOutwardsViewHeight)];
+	highlightOutwardsView.backgroundColor = [UIColor clearColor];
+
+	highlightOutwardsSwitch.center = CGPointMake(highlightOutwardsView.frame.size.width - (highlightOutwardsSwitch.frame.size.width / 2.0), (highlightOutwardsView.frame.size.height / 2.0));
+	highlightOutwardsLabel.center = CGPointMake(highlightOutwardsLabel.frame.size.width / 2.0, (highlightOutwardsView.frame.size.height / 2.0));
+
+	UIView *outwardsSeparatorView = [[UIView alloc] initWithFrame:CGRectMake(activateOptionView.frame.origin.x / 2.0, highlightOutwardsView.frame.origin.y + highlightOutwardsView.frame.size.height + padding, self.view.frame.size.width - activateOptionView.frame.origin.x, 1.0)];
+	outwardsSeparatorView.backgroundColor = [UIColor whiteColor];
+
+	[highlightOutwardsView addSubview:highlightOutwardsLabel];
+	[highlightOutwardsView addSubview:highlightOutwardsSwitch];
+
+	[self.view addSubview:highlightOutwardsView];
+	[self.view addSubview:outwardsSeparatorView];
 	[self.view addSubview:activateOptionView];
 	[self.view addSubview:separatorView];
 	[self.view addSubview:menuOptionsLabel];
 	[self.view addSubview:optionsScrollView];
+}
+
+- (void)switchChanged:(UISwitch *)optionsSwitch
+{
+	contextualMenu.shouldHighlightOutwards = optionsSwitch.isOn;
 }
 
 - (void)segmentControlChanged:(UISegmentedControl *)segmentedControl
