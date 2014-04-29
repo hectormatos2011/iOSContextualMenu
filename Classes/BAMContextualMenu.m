@@ -257,16 +257,14 @@
 			CGFloat circleLocationAnglePercentage = (angleOfGestureLocation - angleOffset) / 360.0f;
 			NSInteger locationIndex = (NSInteger)roundf(circleLocationAnglePercentage * totalAmountOfCirclesThatCanFit);
 
-			if (locationIndex == totalAmountOfCirclesThatCanFit && startingLocationIndexOffset == 0) {
-				locationIndex = 0;
-			} else if (startingLocationIndexOffset + (contextualMenuItems.count - 1) >= totalAmountOfCirclesThatCanFit && locationIndex < startingLocationIndexOffset) {
-				locationIndex += totalAmountOfCirclesThatCanFit;
-			}
-
 			locationIndex -= startingLocationIndexOffset;
 
-			if (locationIndex == -totalAmountOfCirclesThatCanFit) {
-				locationIndex += totalAmountOfCirclesThatCanFit;
+			if (locationIndex < 0) {
+				CGFloat multiplier = ceilf((CGFloat)ABS(locationIndex) / (CGFloat)totalAmountOfCirclesThatCanFit);
+				locationIndex += (totalAmountOfCirclesThatCanFit * multiplier);
+			}
+			if (locationIndex >= totalAmountOfCirclesThatCanFit) {
+				locationIndex -= totalAmountOfCirclesThatCanFit;
 			}
 
 			if (locationIndex < contextualMenuItems.count && locationIndex >= 0) {
@@ -686,7 +684,7 @@
 		totalAmountOfCirclesThatCanFit = defaultTotalAmountOfCirclesThatCanFit;
 	}
 	angleIncrement = (360.0f / totalAmountOfCirclesThatCanFit);
-	defaultStartingAngle = (angleIncrement * (totalAmountOfCirclesThatCanFit - 1));
+	defaultStartingAngle = -angleIncrement;
 
 	for (NSInteger index = 0; index < numberOfMenuItems; index++) {
 		if (self.delegate) {
@@ -907,7 +905,7 @@ typedef enum ZZScreenEdge : NSUInteger {
 	CGPoint menuItemCenter = startingLocation;
 
 	//Need an offset for the startingIndex for highlight logic
-	CGFloat anglePercentage = defaultStartingAngle / 360.0f;
+	CGFloat anglePercentage = (defaultStartingAngle / 360.0f);
 	startingLocationIndexOffset = (NSInteger)roundf(anglePercentage * totalAmountOfCirclesThatCanFit);
 
 	CGFloat startingAngle = defaultStartingAngle + ((CGFloat)index * angleIncrement) + angleOffset;
@@ -952,6 +950,11 @@ typedef enum ZZScreenEdge : NSUInteger {
 	if (relativeToYAxis) {
 		//Because this formula returns the angle of the straight line between firstPoint and secondPoint relative to the X axis, where a horizontal line gives a value of 0 degrees and a vertical line gives a value of -90 degrees (because iOS has a flipped y coordinate system), we have to add 90 degrees to make the final output relative to the y axis.
 		angles += 90.0f;
+	}
+
+	if (angles < 0.0f) {
+		//After 270 degrees, angles jumps to -90 degrees. Adding 360 degrees to that will get us the correct angle from 270 to 360.
+		angles += 360.0f;
 	}
 
     return angles;
