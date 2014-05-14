@@ -48,7 +48,7 @@
 	NSMutableArray *highlightedMenuItems;
 	NSMutableArray *defaultSelectedBackgroundViews;
 	NSMutableArray *contextualMenuTitleViews;
-	NSMutableArray *menuItemRectsInWindowArray;
+	NSMutableArray *menuItemRectsInRootViewArray;
 
 	UIView *shadowView;
 	UIView *containerView;
@@ -56,7 +56,7 @@
 	UIView *currentlyHighlightedMenuItem;
 	UIView *startCircleView;
 
-	UIWindow *mainWindow;
+	UIView *rootView;
 
 	CGFloat menuItemsCenterRadius;
 	CGFloat biggestMenuItemWidthHeight;
@@ -118,10 +118,11 @@
 		angleOffset = 0.0;
 		currentlyHighlightedMenuItemIndex = NSNotFound;
 
-		mainWindow = [[[UIApplication sharedApplication] delegate] window];
+		rootView = [[[[[UIApplication sharedApplication] delegate] window] rootViewController] view];
 
-		shadowView = [[UIView alloc] initWithFrame:mainWindow.bounds];
+		shadowView = [[UIView alloc] initWithFrame:rootView.bounds];
 		shadowView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.4f];
+		shadowView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 		shadowView.alpha = 0.0f;
 
 		startCircleView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, circleViewWidthHeight, circleViewWidthHeight)];
@@ -216,11 +217,12 @@
 #pragma mark Gesture Recognizer Event Handlers
 - (void)longPressActivated:(UIGestureRecognizer *)gestureRecognizer
 {
-	CGPoint gestureLocationInWindow = [gestureRecognizer locationInView:mainWindow];
+	CGPoint gestureLocationInRootView = [gestureRecognizer locationInView:rootView];
 
 	if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
-		startingLocation = gestureLocationInWindow;
+		startingLocation = gestureLocationInRootView;
 
+		shadowView.frame = rootView.bounds;
 		startCircleView.center = startingLocation;
 
 		[self layoutMenuItemsIfNeeded];
@@ -233,7 +235,7 @@
 	if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
 		currentStatusBarHeight = ([[UIApplication sharedApplication] isStatusBarHidden]) ? 0.0 : [[UIApplication sharedApplication] statusBarFrame].size.height;
 
-		[mainWindow addSubview:shadowView];
+		[rootView addSubview:shadowView];
 
 		[self showMenuItems:YES completion:nil];
 	} else if (gestureRecognizer.state == UIGestureRecognizerStateChanged) {
@@ -242,11 +244,11 @@
 		CGFloat innerCircleRadius = startingLocation.x - innerCircleRectX;
 		CGFloat outerCircleRadius = innerCircleRadius + biggestMenuItemWidthHeight + circleViewWidthHeight;
 
-		CGFloat angleOfGestureLocation = [self getAngleBetweenOrigin:startingLocation andSecondPoint:gestureLocationInWindow relativeToYAxis:YES];
-		CGFloat distanceFromOrigin = [self calculateDistanceWithPoint:gestureLocationInWindow fromOrigin:startingLocation];
+		CGFloat angleOfGestureLocation = [self getAngleBetweenOrigin:startingLocation andSecondPoint:gestureLocationInRootView relativeToYAxis:YES];
+		CGFloat distanceFromOrigin = [self calculateDistanceWithPoint:gestureLocationInRootView fromOrigin:startingLocation];
 
 		if (distanceFromOrigin > innerCircleRadius + biggestMenuItemWidthHeight) {
-			gestureLocationInWindow = [self circumferentialPointForViewWithRadius:innerCircleRadius + biggestMenuItemWidthHeight angle:angleOfGestureLocation andCenterPoint:startingLocation];
+			gestureLocationInRootView = [self circumferentialPointForViewWithRadius:innerCircleRadius + biggestMenuItemWidthHeight angle:angleOfGestureLocation andCenterPoint:startingLocation];
 			distanceFromOrigin = innerCircleRadius + (biggestMenuItemWidthHeight / 2.0);
 		}
 
@@ -304,7 +306,7 @@
 			currentlyHighlightedMenuItemIndex = NSNotFound;
 		}
 
-		startCircleView.center = gestureLocationInWindow;
+		startCircleView.center = gestureLocationInRootView;
 	} else if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
 		BOOL activateMenuItem = (currentlyHighlightedMenuItem && currentlyHighlightedMenuItemIndex != NSNotFound);
 
@@ -339,9 +341,9 @@
 		CGRect viewRect = containerView.frame;
 
 		CGPoint touchLocation = point;
-		CGPoint gestureLocationInWindow = [containerView convertPoint:point toView:mainWindow];
+		CGPoint gestureLocationInRootView = [containerView convertPoint:point toView:rootView];
 
-		startingLocation = CGPointMake((gestureLocationInWindow.x - touchLocation.x) + (viewRect.size.width / 2.0), (gestureLocationInWindow.y - touchLocation.y) + (viewRect.size.height / 2.0));
+		startingLocation = CGPointMake((gestureLocationInRootView.x - touchLocation.x) + (viewRect.size.width / 2.0), (gestureLocationInRootView.y - touchLocation.y) + (viewRect.size.height / 2.0));
 	}
 
 	return [super hitTest:point withEvent:event];
@@ -359,21 +361,21 @@
 
 	currentStatusBarHeight = ([[UIApplication sharedApplication] isStatusBarHidden]) ? 0.0 : [[UIApplication sharedApplication] statusBarFrame].size.height;
 
-	[mainWindow addSubview:shadowView];
+	[rootView addSubview:shadowView];
 
 	[self showMenuItems:YES completion:nil];
 }
 
 - (void)shadowViewGestureActivated:(UIGestureRecognizer *)gestureRecognizer
 {
-	CGPoint touchLocation = [gestureRecognizer locationInView:mainWindow];
+	CGPoint touchLocation = [gestureRecognizer locationInView:rootView];
 
 	if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
 		startingTouchIndex = [self indexAtPoint:touchLocation];
 		shouldSelectMenuItem = (startingTouchIndex != NSNotFound);
 
 		if (startingTouchIndex != NSNotFound) {
-			startingTouchMenuRect = CGRectInset([[menuItemRectsInWindowArray objectAtIndex:startingTouchIndex] CGRectValue], tapHighlightInset, tapHighlightInset);
+			startingTouchMenuRect = CGRectInset([[menuItemRectsInRootViewArray objectAtIndex:startingTouchIndex] CGRectValue], tapHighlightInset, tapHighlightInset);
 			startTapMenuItem = [contextualMenuItems objectAtIndex:startingTouchIndex];
 
 			[self animateMenuItem:startTapMenuItem atIndex:startingTouchIndex toPoint:startTapMenuItem.center highlighted:YES];
@@ -405,11 +407,11 @@
 - (NSUInteger)indexAtPoint:(CGPoint)point
 {
 	NSInteger selectedIndex = NSNotFound;
-	for (NSValue *value in menuItemRectsInWindowArray) {
+	for (NSValue *value in menuItemRectsInRootViewArray) {
 		CGRect menuRect = value.CGRectValue;
 
 		if (CGRectContainsPoint(menuRect, point)) {
-			selectedIndex = [menuItemRectsInWindowArray indexOfObject:value];
+			selectedIndex = [menuItemRectsInRootViewArray indexOfObject:value];
 			break;
 		}
 	}
@@ -425,14 +427,14 @@
 	CGFloat totalCircleRadius = startingLocation.x - totalCircleRectX;
 	menuItemsCenterRadius = totalCircleRadius - (biggestMenuItemWidthHeight / 2.0);
 
-	[menuItemRectsInWindowArray removeAllObjects];
+	[menuItemRectsInRootViewArray removeAllObjects];
 
 	if (show) {
 		if (self.delegate && [self.delegate respondsToSelector:@selector(contextualMenuActivated:)]) {
 			[self.delegate contextualMenuActivated:self];
 		}
 		//Calculate proper angle offset
-		ZZScreenEdge screenCorner = (startingLocation.x < mainWindow.frame.size.width / 2.0) ? kZZScreenEdgeLeft : kZZScreenEdgeRight;
+		ZZScreenEdge screenCorner = (startingLocation.x < rootView.frame.size.width / 2.0) ? kZZScreenEdgeLeft : kZZScreenEdgeRight;
 
 		if (startingLocation.y - totalCircleRadius - highlightRadiusOffset - titleLabelPadding - biggestTitleViewSize.height < currentStatusBarHeight) {
 			//The highest possible y is past the top screen edge.
@@ -495,7 +497,7 @@
 																			menuItem.center = menuItemCenter;
 																			menuItem.alpha = 1.0;
 
-																			[menuItemRectsInWindowArray addObject:[NSValue valueWithCGRect:menuItem.frame]];
+																			[menuItemRectsInRootViewArray addObject:[NSValue valueWithCGRect:menuItem.frame]];
 
 																			UIView *titleView = [contextualMenuTitleViews objectAtIndex:index];
 																			titleView.center = CGPointMake(menuItem.center.x, (titleView.frame.size.height / 2.0) + (menuItem.center.y - (menuItem.frame.size.height / 2.0)));
@@ -657,15 +659,15 @@
 	if (!contextualMenuTitleViews) {
 		contextualMenuTitleViews = [NSMutableArray array];
 	}
-	if (!menuItemRectsInWindowArray) {
-		menuItemRectsInWindowArray = [NSMutableArray array];
+	if (!menuItemRectsInRootViewArray) {
+		menuItemRectsInRootViewArray = [NSMutableArray array];
 	}
 
 	[contextualMenuItems removeAllObjects];
 	[highlightedMenuItems removeAllObjects];
 	[defaultSelectedBackgroundViews removeAllObjects];
 	[contextualMenuTitleViews removeAllObjects];
-	[menuItemRectsInWindowArray removeAllObjects];
+	[menuItemRectsInRootViewArray removeAllObjects];
 
 	for (UIView *subview in shadowView.subviews) {
 		if (subview != startCircleView) {
@@ -836,14 +838,14 @@ typedef enum ZZScreenEdge : NSUInteger {
 		sizeOfClosestLabelToEdge = lastIndexTitleViewSize;
 		maxWidthForFurthestX = MAX(sizeOfClosestLabelToEdge.width, biggestMenuItemWidthHeight);
 		labelXFurthestFromTheEdge = highlightedMenuCenter.x + (maxWidthForFurthestX / 2.0);
-		calculateAngleOffset = (labelXFurthestFromTheEdge > mainWindow.frame.size.width - screenEdgeOffsetForFinalLabelPosition);
+		calculateAngleOffset = (labelXFurthestFromTheEdge > rootView.frame.size.width - screenEdgeOffsetForFinalLabelPosition);
 	}
 
 	if (calculateAngleOffset) {
 		//Since we want the label of the closest menu item to the screen edge to be flush with the screen edge, we can derive the x of where that menu item is supposed to be from that label. (NOTE: each menu item's label is centered with the menu item. So the center.x of the label is equal to the center.x of the menu item.) Once we know that X, we can use the paramteric equation to derive the angle of that final position of said menu item in relation to the origin.
 		CGFloat finalCenterXOfMenuItemClosestToEdge = screenEdgeOffsetForFinalLabelPosition + (maxWidthForFurthestX / 2.0);
 		if (screenEdge & kZZScreenEdgeRight) {
-			finalCenterXOfMenuItemClosestToEdge = mainWindow.frame.size.width - (maxWidthForFurthestX / 2.0) - screenEdgeOffsetForFinalLabelPosition;
+			finalCenterXOfMenuItemClosestToEdge = rootView.frame.size.width - (maxWidthForFurthestX / 2.0) - screenEdgeOffsetForFinalLabelPosition;
 		}
 
 		//Let's get our missing y. We could use an arcSine version of the paramteric equation, but our getAngleBetweenOrigin: method uses atan2 which will prevent us from getting NAN values here.
@@ -886,6 +888,8 @@ typedef enum ZZScreenEdge : NSUInteger {
 
 		angleOffset = wantedAngleOfMenuItemClosestToTopEdge - startingAngle;
 	}
+
+	angleOffset += [self rotationAngleOffset];
 }
 
 - (CGFloat)calculateMissingSideOfTriangleWithHypotenuse:(CGFloat)hypotenuse knownLegWidth:(CGFloat)legA
@@ -958,6 +962,15 @@ typedef enum ZZScreenEdge : NSUInteger {
 	}
 
     return angles;
+}
+
+- (CGFloat)rotationAngleOffset
+{
+	//Anything not on Portrait Orientation needs an additional offset due to strange behaviors with iPad rotation.
+	if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
+		return 180.0;
+	}
+	return 0.0;
 }
 
 #pragma mark Tear Down Methods
