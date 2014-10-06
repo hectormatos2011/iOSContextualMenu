@@ -964,12 +964,19 @@ typedef enum ZZScreenEdge : NSUInteger {
     return angles;
 }
 
+- (BOOL)sdkNeedsRotationOffsett
+{
+    BOOL isCompiledWithPreIOS8SDK = NSFoundationVersionNumber <= 1048.0;
+    return ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.0 || isCompiledWithPreIOS8SDK);
+}
+
 - (CGFloat)rotationAngleOffset
 {
 	//Anything not on Portrait Orientation needs an additional offset due to strange behaviors with iPad rotation.
-	if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
+	if ([self sdkNeedsRotationOffsett] && UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
 		return 180.0;
-	}
+	}    
+    
 	return 0.0;
 }
 
