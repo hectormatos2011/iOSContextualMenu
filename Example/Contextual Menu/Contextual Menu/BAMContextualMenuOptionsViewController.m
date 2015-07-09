@@ -9,7 +9,7 @@
 #import "BAMContextualMenuOptionsViewController.h"
 #import "UIImage+ImageWithUIView.h"
 #import "BAMOptionsButton.h"
-#import <BAMContextualMenu.h>
+#import <iOSContextualMenu/BAMContextualMenu.h>
 
 #define contextualImageViewLeftRightMargin		50.0
 #define contextualLabelTopMargin				100.0
