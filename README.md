@@ -18,7 +18,7 @@ To run the example project; clone the repo, and run `pod install` from the Examp
 ##Overview
 The iOSContextualMenu uses a similar dataSource/delegate paradigm like UITableView, UICollectionView, UIPickerView, etc.
 
-To implement in your code, follow these steps (This code in these steps is for putting a contextual menu in every cell of a UICollectionView. In this example, I'm adding the contextual menu code inside of my own UICollectionViewCell subclass. Feel free to add a contextual menu to any UIView or a subclass of UIView if this isn't what you want. The following example will also work for UITableView and it's UITableViewCell subclasses.): 
+To implement in your code, follow these steps (This code in these steps is for putting a contextual menu in every cell of a UICollectionView. In this example, I'm adding the contextual menu code inside of my own UICollectionViewCell subclass. Feel free to add a contextual menu to any UIView or a subclass of UIView if this isn't what you want. The following example will also work for UITableView and it's UITableViewCell subclasses. Hooray for abstraction!): 
 
 #### Step 1
 In your interface declaration, make sure to make your object comply to BAMContextualMenuDelegate and BAMContextualMenuDataSource
@@ -74,7 +74,7 @@ Also, feel free to return any UIView you want. One nice thing about BAMContextua
 ```
 
 ####Optional Delegate Methods for Further Customization
-This is optional, but if you wanted to use a separate view for each menu item's highlighted state, you can use contextualMenu:viewForHighlightedMenuItemAtIndex:. 
+This is optional, but if you wanted to use a separate view for each menu item's highlighted state, you can use contextualMenu:viewForHighlightedMenuItemAtIndex:.
 
 ```objectivec
 - (UIView *)contextualMenu:(BAMContextualMenu *)contextualMenu viewForHighlightedMenuItemAtIndex:(NSUInteger)index
@@ -156,4 +156,3 @@ Hector Matos, hectormatos2011@gmail.com
 ## License
 
 iOSContextualMenu is available under the MIT license. See the LICENSE file for more info.
-
