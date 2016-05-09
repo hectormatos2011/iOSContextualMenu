@@ -715,7 +715,7 @@
                 highlightedMenuItem = menuItem;
             }
             
-            UIView *titleView;
+            UIView *titleView = nil;
             
             if ([self.delegate respondsToSelector:@selector(contextualMenu:titleViewForMenuItemAtIndex:)]) {
                 titleView = [self.delegate contextualMenu:self titleViewForMenuItemAtIndex:index];
@@ -753,7 +753,7 @@
                 }
                 
                 titleView = titleLabel;
-            } else {
+            } else if(titleView == nil){
                 titleView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, biggestMenuItemWidthHeight, 1.0)];
                 titleView.backgroundColor = [UIColor clearColor];
             }
