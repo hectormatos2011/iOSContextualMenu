@@ -119,7 +119,11 @@
         angleOffset = 0.0;
         currentlyHighlightedMenuItemIndex = NSNotFound;
         
-        rootView = [[[[[UIApplication sharedApplication] delegate] window] rootViewController] view];
+        UIViewController* rootController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+        while (rootController.presentedViewController != nil) {
+            rootController = rootController.presentedViewController;
+        }
+        rootView = [rootController view];
         
         shadowView = [[UIView alloc] initWithFrame:rootView.bounds];
         shadowView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.4f];
