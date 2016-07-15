@@ -26,7 +26,7 @@
 #import "BAMContextualMenu.h"
 
 //Circle View Constants
-#define circleViewWidthHeight					60.0f
+#define circleViewWidthHeight					50.0f
 #define startCircleStrokeWidth					4.0f
 #define defaultTotalAmountOfCirclesThatCanFit	6
 #define topAndBottomTitleLabelPadding			5.0
