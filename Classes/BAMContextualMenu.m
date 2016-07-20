@@ -118,10 +118,10 @@
 		angleOffset = 0.0;
 		currentlyHighlightedMenuItemIndex = NSNotFound;
 		
-		rootView = [[[[[UIApplication sharedApplication] delegate] window] rootViewController] view];
-		
+		//rootView = [[[[[UIApplication sharedApplication] delegate] window] rootViewController] view];
+		rootView = [[UIApplication sharedApplication] windows][0];
 		shadowView = [[UIView alloc] initWithFrame:rootView.bounds];
-		shadowView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.4f];
+		shadowView.backgroundColor = [UIColor clearColor];
 		shadowView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 		shadowView.alpha = 0.0f;
 		
@@ -236,6 +236,7 @@
 		currentStatusBarHeight = ([[UIApplication sharedApplication] isStatusBarHidden]) ? 0.0 : [[UIApplication sharedApplication] statusBarFrame].size.height;
 		
 		[rootView addSubview:shadowView];
+		[rootView bringSubviewToFront:shadowView];
 		
 		[self showMenuItems:YES completion:nil];
 	} else if (gestureRecognizer.state == UIGestureRecognizerStateChanged) {
@@ -472,6 +473,7 @@
 															  relativeDuration:1.0
 																	animations:^{
 																		shadowView.alpha = 1.0f;
+																		[rootView bringSubviewToFront:shadowView];
 																	}];
 									  [UIView addKeyframeWithRelativeStartTime:0.0
 															  relativeDuration:0.8
