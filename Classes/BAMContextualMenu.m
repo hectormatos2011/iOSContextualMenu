@@ -257,23 +257,13 @@
 		BOOL pointIsInsideOuterCircle = !pointIsInsideInnerCircle && (distanceFromOrigin <= outerCircleRadius);
 		
 		if (pointIsInsideOuterCircle) {
-			CGFloat circleLocationAnglePercentage = (360.0f - angleOfGestureLocation) / (180.0f + 360.0f/(totalAmountOfCirclesThatCanFit*2-1));
-			NSInteger locationIndex = (NSInteger)roundf(circleLocationAnglePercentage * totalAmountOfCirclesThatCanFit);
-			
-			locationIndex -= startingLocationIndexOffset;
-			
-			if (locationIndex < 0) {
-				CGFloat multiplier = ceilf((CGFloat)ABS(locationIndex) / (CGFloat)totalAmountOfCirclesThatCanFit);
-				locationIndex += (totalAmountOfCirclesThatCanFit * multiplier);
+			if (angleOfGestureLocation < (defaultStartingAngle - 180.0f)) {
+				angleOfGestureLocation += 360.0f;
 			}
+			CGFloat circleLocationAnglePercentage = (defaultStartingAngle - angleOfGestureLocation) / 180.0f;
+			NSInteger locationIndex = (NSInteger)(circleLocationAnglePercentage * (totalAmountOfCirclesThatCanFit-1));
 			
-			if (locationIndex == totalAmountOfCirclesThatCanFit) {
-				locationIndex -= 1;
-			}
-			
-			if (locationIndex > totalAmountOfCirclesThatCanFit) {
-				locationIndex = 0;
-			}
+			locationIndex = abs(locationIndex*2)-MIN(MAX(locationIndex, 0), 1);
 			
 			if (locationIndex < contextualMenuItems.count && locationIndex >= 0) {
 				UIView *menuItem = [contextualMenuItems objectAtIndex:locationIndex];
@@ -284,15 +274,15 @@
 				[shadowView bringSubviewToFront:menuItem];
 				[shadowView bringSubviewToFront:titleView];
 				
-				if (locationIndex != currentlyHighlightedMenuItemIndex) {
-					//highlight menu item
-					CGPoint highlightedCenter = [self calculateCenterForMenuItemAtIndex:[contextualMenuItems indexOfObject:menuItem] withCircleRadius:menuItemsCenterRadius + highlightRadiusOffset];
-					[self animateMenuItem:menuItem atIndex:locationIndex toPoint:highlightedCenter highlighted:YES];
-				}
 				if (currentlyHighlightedMenuItem && currentlyHighlightedMenuItem != menuItem) {
 					//Unhighlight currently highlighted menu item
 					CGPoint originalCenter = [self calculateCenterForMenuItemAtIndex:[contextualMenuItems indexOfObject:currentlyHighlightedMenuItem] withCircleRadius:menuItemsCenterRadius];
 					[self animateMenuItem:currentlyHighlightedMenuItem atIndex:[contextualMenuItems indexOfObject:currentlyHighlightedMenuItem] toPoint:originalCenter highlighted:NO];
+				}
+				if (locationIndex != currentlyHighlightedMenuItemIndex) {
+					//highlight menu item
+					CGPoint highlightedCenter = [self calculateCenterForMenuItemAtIndex:[contextualMenuItems indexOfObject:menuItem] withCircleRadius:menuItemsCenterRadius + highlightRadiusOffset];
+					[self animateMenuItem:menuItem atIndex:locationIndex toPoint:highlightedCenter highlighted:YES];
 				}
 				currentlyHighlightedMenuItemIndex = locationIndex;
 				currentlyHighlightedMenuItem = menuItem;
@@ -563,8 +553,12 @@
 	}
 	menuItemIsAnimating = YES;
 	
-	if (self.delegate && [self.delegate respondsToSelector:@selector(contextualMenu:didHighlightItemAtIndex:)]) {
+	if (self.delegate && [self.delegate respondsToSelector:@selector(contextualMenu:didHighlightItemAtIndex:)] && highlighted) {
 		[self.delegate contextualMenu:self didHighlightItemAtIndex:index];
+	}
+	
+	if (self.delegate && [self.delegate respondsToSelector:@selector(contextualMenu:didUnHighlightItemAtIndex:)] && !highlighted) {
+		[self.delegate contextualMenu:self didUnHighlightItemAtIndex:index];
 	}
 	
 	UIView *titleView = [contextualMenuTitleViews objectAtIndex:index];
@@ -687,23 +681,23 @@
 		numberOfMenuItems = [self.dataSource numberOfContextualMenuItems];
 	}
 	
-	if (numberOfMenuItems < defaultTotalAmountOfCirclesThatCanFit) {
-		totalAmountOfCirclesThatCanFit = numberOfMenuItems;
-	} else {
+//	if (numberOfMenuItems < defaultTotalAmountOfCirclesThatCanFit) {
+//		totalAmountOfCirclesThatCanFit = numberOfMenuItems;
+//	} else {
 		totalAmountOfCirclesThatCanFit = defaultTotalAmountOfCirclesThatCanFit;
-	}
+//	}
 	
 	if (totalAmountOfCirclesThatCanFit <= 4) {
-		_menuItemDistancePadding = 20;
+		_menuItemDistancePadding = 40;
 	} else if (totalAmountOfCirclesThatCanFit == defaultTotalAmountOfCirclesThatCanFit) {
-		_menuItemDistancePadding = 50;
+		_menuItemDistancePadding = 70;
 	}
 	if (totalAmountOfCirclesThatCanFit > 1) {
 		angleIncrement = (180.0f / (totalAmountOfCirclesThatCanFit-1));
 	} else {
 		angleIncrement = 0;
 	}
-	defaultStartingAngle = 0;
+	defaultStartingAngle = 300;
 	for (NSInteger index = 0; index < numberOfMenuItems; index++) {
 		if (self.delegate) {
 			UIView *menuItem;
@@ -928,7 +922,7 @@ typedef enum ZZScreenEdge : NSUInteger {
 	CGFloat anglePercentage = (defaultStartingAngle / 360.0f);
 	startingLocationIndexOffset = (NSInteger)roundf(anglePercentage * totalAmountOfCirclesThatCanFit);
 	
-	CGFloat startingAngle = defaultStartingAngle - ((CGFloat)index * angleIncrement);
+	CGFloat startingAngle = defaultStartingAngle + ceil(index/2.0)*angleIncrement*pow(-1, index);//defaultStartingAngle - ((CGFloat)index * angleIncrement);
 	menuItemCenter = [self circumferentialPointForViewWithRadius:circleRadius angle:startingAngle andCenterPoint:startingLocation];
 	
 	return menuItemCenter;
