@@ -68,6 +68,7 @@ typedef enum HMContextualMenuActivateOption : NSUInteger {
 //This method could be used to undo any action taken in contextualMenuActivated:.
 - (void)contextualMenuDismissed:(BAMContextualMenu *)contextualMenu;
 
+- (CGFloat)menuItemDistancePadding;
 - (void)contextualMenu:(BAMContextualMenu *)contextualMenu didSelectItemAtIndex:(NSUInteger)index;
 - (void)contextualMenu:(BAMContextualMenu *)contextualMenu didHighlightItemAtIndex:(NSUInteger)index;
 - (void)contextualMenu:(BAMContextualMenu *)contextualMenu didUnHighlightItemAtIndex:(NSUInteger)index;
