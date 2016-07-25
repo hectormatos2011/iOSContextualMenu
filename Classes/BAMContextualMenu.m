@@ -681,17 +681,14 @@
 		numberOfMenuItems = [self.dataSource numberOfContextualMenuItems];
 	}
 	
-//	if (numberOfMenuItems < defaultTotalAmountOfCirclesThatCanFit) {
-//		totalAmountOfCirclesThatCanFit = numberOfMenuItems;
-//	} else {
-		totalAmountOfCirclesThatCanFit = defaultTotalAmountOfCirclesThatCanFit;
-//	}
+	totalAmountOfCirclesThatCanFit = defaultTotalAmountOfCirclesThatCanFit;
 	
-	if (totalAmountOfCirclesThatCanFit <= 4) {
-		_menuItemDistancePadding = 40;
-	} else if (totalAmountOfCirclesThatCanFit == defaultTotalAmountOfCirclesThatCanFit) {
+	if ([self.delegate respondsToSelector:@selector(menuItemDistancePadding)]) {
+		_menuItemDistancePadding = [self.delegate menuItemDistancePadding];
+	} else {
 		_menuItemDistancePadding = 70;
 	}
+	
 	if (totalAmountOfCirclesThatCanFit > 1) {
 		angleIncrement = (180.0f / (totalAmountOfCirclesThatCanFit-1));
 	} else {
