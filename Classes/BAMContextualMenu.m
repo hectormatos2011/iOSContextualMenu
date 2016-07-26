@@ -694,7 +694,13 @@
 	} else {
 		angleIncrement = 0;
 	}
-	defaultStartingAngle = 300;
+	
+	if ([self.delegate respondsToSelector:@selector(startingAngle)]) {
+		defaultStartingAngle = [self.delegate startingAngle];
+	} else {
+		defaultStartingAngle = 300;
+	}
+	
 	for (NSInteger index = 0; index < numberOfMenuItems; index++) {
 		if (self.delegate) {
 			UIView *menuItem;
