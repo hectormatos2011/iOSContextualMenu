@@ -69,6 +69,7 @@ typedef enum HMContextualMenuActivateOption : NSUInteger {
 - (void)contextualMenuDismissed:(BAMContextualMenu *)contextualMenu;
 
 - (CGFloat)menuItemDistancePadding;
+- (CGFloat)startingAngle;
 - (void)contextualMenu:(BAMContextualMenu *)contextualMenu didSelectItemAtIndex:(NSUInteger)index;
 - (void)contextualMenu:(BAMContextualMenu *)contextualMenu didHighlightItemAtIndex:(NSUInteger)index;
 - (void)contextualMenu:(BAMContextualMenu *)contextualMenu didUnHighlightItemAtIndex:(NSUInteger)index;
