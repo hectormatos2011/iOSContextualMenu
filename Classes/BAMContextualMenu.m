@@ -209,8 +209,22 @@
 			startCircleView.hidden = YES;
 			break;
 		}
-		default:
-			break;
+		case kBAMContextualMenuActivateOptionBoth: {
+			longPressActivationGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressActivated:)];
+			longPressActivationGestureRecognizer.delegate = self;
+			[self.containerView addGestureRecognizer:longPressActivationGestureRecognizer];
+			
+			tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapActivated:)];
+			tapGestureRecognizer.delegate = self;
+			[self.containerView addGestureRecognizer:tapGestureRecognizer];
+			
+			shadowGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(shadowViewGestureActivated:)];
+			shadowGestureRecognizer.minimumPressDuration = 0.0001;
+			shadowGestureRecognizer.delegate = self;
+			[shadowView addGestureRecognizer:shadowGestureRecognizer];
+			
+			startCircleView.hidden = YES;
+		}
 	}
 }
 
@@ -237,7 +251,8 @@
 		
 		[rootView addSubview:shadowView];
 		[rootView bringSubviewToFront:shadowView];
-		
+		startCircleView.hidden = NO;
+
 		[self showMenuItems:YES completion:nil];
 	} else if (gestureRecognizer.state == UIGestureRecognizerStateChanged) {
 		CGFloat innerCircleRectX = startingLocation.x - _menuItemDistancePadding;
@@ -319,6 +334,7 @@
 		}
 		
 		[self showMenuItems:NO completion:nil];
+		startCircleView.hidden = YES;
 	} else {
 		if (currentlyHighlightedMenuItem) {
 			CGPoint originalCenter = [self calculateCenterForMenuItemAtIndex:[contextualMenuItems indexOfObject:currentlyHighlightedMenuItem] withCircleRadius:menuItemsCenterRadius];
@@ -333,7 +349,7 @@
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
-	if (self.activateOption == kBAMContextualMenuActivateOptionTouchUp) {
+	if (self.activateOption == kBAMContextualMenuActivateOptionTouchUp || self.activateOption == kBAMContextualMenuActivateOptionBoth) {
 		CGRect viewRect = self.containerView.frame;
 		
 		CGPoint touchLocation = point;
