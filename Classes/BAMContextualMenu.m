@@ -1008,6 +1008,14 @@ typedef enum ZZScreenEdge : NSUInteger {
 	return 0.0;
 }
 
+- (void)removeFromSuperview
+{
+	if (_menuIsShowing) {
+		[self showMenuItems:NO completion:nil];
+	}
+	[super removeFromSuperview];
+}
+
 #pragma mark Tear Down Methods
 + (void)removeContextualMenuFromView:(UIView *)containingView
 {
