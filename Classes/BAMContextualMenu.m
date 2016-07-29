@@ -234,7 +234,13 @@
 	CGPoint gestureLocationInRootView = [gestureRecognizer locationInView:rootView];
 	
 	if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
-		startingLocation = gestureLocationInRootView;
+		CGRect viewRect = self.containerView.frame;
+		
+		CGPoint point = [gestureRecognizer locationInView:nil];
+		CGPoint touchLocation = point;
+		CGPoint gestureLocationInRootView = [self.containerView convertPoint:point toView:rootView];
+		
+		startingLocation = CGPointMake((gestureLocationInRootView.x - touchLocation.x) + (viewRect.size.width / 2.0), (gestureLocationInRootView.y - touchLocation.y) + (viewRect.size.height / 2.0));
 		
 		shadowView.frame = rootView.bounds;
 		startCircleView.center = startingLocation;
