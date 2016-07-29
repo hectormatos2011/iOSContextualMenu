@@ -224,6 +224,7 @@
 			[shadowView addGestureRecognizer:shadowGestureRecognizer];
 			
 			startCircleView.hidden = YES;
+			break;
 		}
 	}
 }
@@ -370,6 +371,7 @@
 - (void)tapActivated:(UIGestureRecognizer *)tapGesture
 {
 	startCircleView.center = startingLocation;
+	startCircleView.hidden = true;
 	
 	[self layoutMenuItemsIfNeeded];
 	
