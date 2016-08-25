@@ -28,6 +28,7 @@
 typedef enum HMContextualMenuActivateOption : NSUInteger {
 	kBAMContextualMenuActivateOptionLongPress = 0,
 	kBAMContextualMenuActivateOptionTouchUp = 1,
+	kBAMContextualMenuActivateOptionBoth = 3,
 } BAMContextualMenuActivateOption;
 
 @protocol BAMContextualMenuDelegate, BAMContextualMenuDataSource;
@@ -68,8 +69,11 @@ typedef enum HMContextualMenuActivateOption : NSUInteger {
 //This method could be used to undo any action taken in contextualMenuActivated:.
 - (void)contextualMenuDismissed:(BAMContextualMenu *)contextualMenu;
 
+- (CGFloat)menuItemDistancePadding;
+- (CGFloat)startingAngle;
 - (void)contextualMenu:(BAMContextualMenu *)contextualMenu didSelectItemAtIndex:(NSUInteger)index;
 - (void)contextualMenu:(BAMContextualMenu *)contextualMenu didHighlightItemAtIndex:(NSUInteger)index;
+- (void)contextualMenu:(BAMContextualMenu *)contextualMenu didUnHighlightItemAtIndex:(NSUInteger)index;
 - (UIView *)contextualMenu:(BAMContextualMenu *)contextualMenu viewForHighlightedMenuItemAtIndex:(NSUInteger)index;
 - (NSString *)contextualMenu:(BAMContextualMenu *)contextualMenu titleForMenuItemAtIndex:(NSUInteger)index;
 - (UIFont *)contextualMenu:(BAMContextualMenu *)contextualMenu fontForMenuItemTitleViewAtIndex:(NSUInteger)index;
