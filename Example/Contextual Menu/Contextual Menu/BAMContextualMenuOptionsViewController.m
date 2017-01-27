@@ -15,6 +15,23 @@
 #define contextualLabelTopMargin				100.0
 #define imageWidthHeight						50.0
 
+@interface Kraken : NSObject
+@end
+
+@implementation Kraken
+
++ (instancetype)sharedInstance {
+    static Kraken *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[Kraken alloc] init];
+    });
+    return sharedInstance;
+}
+
+@end
+
 @interface BAMContextualMenuOptionsViewController () <BAMContextualMenuDataSource, BAMContextualMenuDelegate, UIGestureRecognizerDelegate>
 {
 	UILabel *actionLabel;
@@ -215,7 +232,6 @@
 	UISegmentedControl *activateOptionSegmentControl = [[UISegmentedControl alloc] initWithItems:@[@"Long Press", @"Tap to Activate"]];
 	activateOptionSegmentControl.selectedSegmentIndex = 0;
 	activateOptionSegmentControl.tintColor = [UIColor whiteColor];
-	activateOptionSegmentControl.segmentedControlStyle = UISegmentedControlStyleBar;
 	[activateOptionSegmentControl addTarget:self action:@selector(segmentControlChanged:) forControlEvents:UIControlEventValueChanged];
 
 	UILabel *activateOptionLabel = [[UILabel alloc] initWithFrame:CGRectZero];

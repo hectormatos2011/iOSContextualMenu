@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC54B5C98CBCAF6B1EAC0DA3 /* libPods-Contextual Menu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87247BEFA77E10E4D15054BC /* libPods-Contextual Menu.a */; };
 		C4AA66BE1901F4A2005C6927 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4AA66BD1901F4A2005C6927 /* Foundation.framework */; };
 		C4AA66C01901F4A2005C6927 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4AA66BF1901F4A2005C6927 /* CoreGraphics.framework */; };
 		C4AA66C21901F4A2005C6927 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4AA66C11901F4A2005C6927 /* UIKit.framework */; };
@@ -22,7 +23,6 @@
 		C4AA66EE1901FBBB005C6927 /* BAMContextualMenuOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AA66ED1901FBBB005C6927 /* BAMContextualMenuOptionsViewController.m */; };
 		C4AA66F1190204A0005C6927 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AA66F0190204A0005C6927 /* UIImage+ImageWithUIView.m */; };
 		C4AA66F419036B35005C6927 /* BAMOptionsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AA66F319036B35005C6927 /* BAMOptionsButton.m */; };
-		F3C441E9BB02450D8B4E2A8B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C1EC7F3A514047B8AC28E0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0AA668BB443BE44CA404A01C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		53AB0F25B5DB3EE830E1C056 /* Pods-Contextual Menu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contextual Menu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Contextual Menu/Pods-Contextual Menu.debug.xcconfig"; sourceTree = "<group>"; };
+		87247BEFA77E10E4D15054BC /* libPods-Contextual Menu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Contextual Menu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4AA66BA1901F4A2005C6927 /* Contextual Menu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Contextual Menu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4AA66BD1901F4A2005C6927 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4AA66BF1901F4A2005C6927 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -59,8 +60,7 @@
 		C4AA66F0190204A0005C6927 /* UIImage+ImageWithUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageWithUIView.m"; sourceTree = "<group>"; };
 		C4AA66F219036B35005C6927 /* BAMOptionsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAMOptionsButton.h; sourceTree = "<group>"; };
 		C4AA66F319036B35005C6927 /* BAMOptionsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAMOptionsButton.m; sourceTree = "<group>"; };
-		E1C1EC7F3A514047B8AC28E0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE037C8072DC38B43B970AFF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F6FD1FC3F34E285298146C0C /* Pods-Contextual Menu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contextual Menu.release.xcconfig"; path = "Pods/Target Support Files/Pods-Contextual Menu/Pods-Contextual Menu.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +71,7 @@
 				C4AA66C01901F4A2005C6927 /* CoreGraphics.framework in Frameworks */,
 				C4AA66C21901F4A2005C6927 /* UIKit.framework in Frameworks */,
 				C4AA66BE1901F4A2005C6927 /* Foundation.framework in Frameworks */,
-				F3C441E9BB02450D8B4E2A8B /* libPods.a in Frameworks */,
+				AC54B5C98CBCAF6B1EAC0DA3 /* libPods-Contextual Menu.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,15 +88,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B4D58B45346F5B28CDD7BD56 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				FE037C8072DC38B43B970AFF /* Pods.debug.xcconfig */,
-				0AA668BB443BE44CA404A01C /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		C4AA66B11901F4A2005C6927 = {
 			isa = PBXGroup;
 			children = (
@@ -104,7 +95,7 @@
 				C4AA66DC1901F4A2005C6927 /* Contextual MenuTests */,
 				C4AA66BC1901F4A2005C6927 /* Frameworks */,
 				C4AA66BB1901F4A2005C6927 /* Products */,
-				B4D58B45346F5B28CDD7BD56 /* Pods */,
+				F3023253A70763A203790B31 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,7 +115,7 @@
 				C4AA66BF1901F4A2005C6927 /* CoreGraphics.framework */,
 				C4AA66C11901F4A2005C6927 /* UIKit.framework */,
 				C4AA66D61901F4A2005C6927 /* XCTest.framework */,
-				E1C1EC7F3A514047B8AC28E0 /* libPods.a */,
+				87247BEFA77E10E4D15054BC /* libPods-Contextual Menu.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -175,6 +166,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F3023253A70763A203790B31 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				53AB0F25B5DB3EE830E1C056 /* Pods-Contextual Menu.debug.xcconfig */,
+				F6FD1FC3F34E285298146C0C /* Pods-Contextual Menu.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -182,11 +182,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4AA66E61901F4A2005C6927 /* Build configuration list for PBXNativeTarget "Contextual Menu" */;
 			buildPhases = (
-				92BFB467F3654A66833CAA01 /* Check Pods Manifest.lock */,
+				0AFE54BA2AAF60B4BC73CA26 /* [CP] Check Pods Manifest.lock */,
 				C4AA66B61901F4A2005C6927 /* Sources */,
 				C4AA66B71901F4A2005C6927 /* Frameworks */,
 				C4AA66B81901F4A2005C6927 /* Resources */,
-				C2E168640FCF495DB5463A4D /* Copy Pods Resources */,
+				3DB13E299ED56269B5BD967F /* [CP] Embed Pods Frameworks */,
+				F1A86AB3E933D0BE8D63E9F4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -221,7 +222,7 @@
 		C4AA66B21901F4A2005C6927 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = CodeNinja;
 				TargetAttributes = {
 					C4AA66D41901F4A2005C6927 = {
@@ -268,34 +269,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		92BFB467F3654A66833CAA01 /* Check Pods Manifest.lock */ = {
+		0AFE54BA2AAF60B4BC73CA26 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		C2E168640FCF495DB5463A4D /* Copy Pods Resources */ = {
+		3DB13E299ED56269B5BD967F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Contextual Menu/Pods-Contextual Menu-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1A86AB3E933D0BE8D63E9F4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Contextual Menu/Pods-Contextual Menu-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -364,13 +380,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -383,7 +405,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -402,20 +424,25 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -423,14 +450,15 @@
 		};
 		C4AA66E71901F4A2005C6927 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE037C8072DC38B43B970AFF /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 53AB0F25B5DB3EE830E1C056 /* Pods-Contextual Menu.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Contextual Menu/Contextual Menu-Prefix.pch";
 				INFOPLIST_FILE = "Contextual Menu/Contextual Menu-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CodeNinja.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -438,14 +466,15 @@
 		};
 		C4AA66E81901F4A2005C6927 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0AA668BB443BE44CA404A01C /* Pods.release.xcconfig */;
+			baseConfigurationReference = F6FD1FC3F34E285298146C0C /* Pods-Contextual Menu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Contextual Menu/Contextual Menu-Prefix.pch";
 				INFOPLIST_FILE = "Contextual Menu/Contextual Menu-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CodeNinja.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -467,6 +496,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Contextual MenuTests/Contextual MenuTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CodeNinja.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -485,6 +515,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Contextual Menu/Contextual Menu-Prefix.pch";
 				INFOPLIST_FILE = "Contextual MenuTests/Contextual MenuTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CodeNinja.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
