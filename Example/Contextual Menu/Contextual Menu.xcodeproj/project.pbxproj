@@ -15,25 +15,10 @@
 		C4AA66CA1901F4A2005C6927 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AA66C91901F4A2005C6927 /* main.m */; };
 		C4AA66CE1901F4A2005C6927 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AA66CD1901F4A2005C6927 /* AppDelegate.m */; };
 		C4AA66D01901F4A2005C6927 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4AA66CF1901F4A2005C6927 /* Images.xcassets */; };
-		C4AA66D71901F4A2005C6927 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4AA66D61901F4A2005C6927 /* XCTest.framework */; };
-		C4AA66D81901F4A2005C6927 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4AA66BD1901F4A2005C6927 /* Foundation.framework */; };
-		C4AA66D91901F4A2005C6927 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4AA66C11901F4A2005C6927 /* UIKit.framework */; };
-		C4AA66E11901F4A2005C6927 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4AA66DF1901F4A2005C6927 /* InfoPlist.strings */; };
-		C4AA66E31901F4A2005C6927 /* Contextual_MenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AA66E21901F4A2005C6927 /* Contextual_MenuTests.m */; };
 		C4AA66EE1901FBBB005C6927 /* BAMContextualMenuOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AA66ED1901FBBB005C6927 /* BAMContextualMenuOptionsViewController.m */; };
 		C4AA66F1190204A0005C6927 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AA66F0190204A0005C6927 /* UIImage+ImageWithUIView.m */; };
 		C4AA66F419036B35005C6927 /* BAMOptionsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AA66F319036B35005C6927 /* BAMOptionsButton.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		C4AA66DA1901F4A2005C6927 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C4AA66B21901F4A2005C6927 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C4AA66B91901F4A2005C6927;
-			remoteInfo = "Contextual Menu";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		53AB0F25B5DB3EE830E1C056 /* Pods-Contextual Menu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contextual Menu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Contextual Menu/Pods-Contextual Menu.debug.xcconfig"; sourceTree = "<group>"; };
@@ -49,11 +34,7 @@
 		C4AA66CC1901F4A2005C6927 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C4AA66CD1901F4A2005C6927 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C4AA66CF1901F4A2005C6927 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		C4AA66D51901F4A2005C6927 /* Contextual MenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Contextual MenuTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4AA66D61901F4A2005C6927 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		C4AA66DE1901F4A2005C6927 /* Contextual MenuTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Contextual MenuTests-Info.plist"; sourceTree = "<group>"; };
-		C4AA66E01901F4A2005C6927 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C4AA66E21901F4A2005C6927 /* Contextual_MenuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Contextual_MenuTests.m; sourceTree = "<group>"; };
 		C4AA66EC1901FBBB005C6927 /* BAMContextualMenuOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAMContextualMenuOptionsViewController.h; sourceTree = "<group>"; };
 		C4AA66ED1901FBBB005C6927 /* BAMContextualMenuOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAMContextualMenuOptionsViewController.m; sourceTree = "<group>"; };
 		C4AA66EF190204A0005C6927 /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
@@ -75,16 +56,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C4AA66D21901F4A2005C6927 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C4AA66D71901F4A2005C6927 /* XCTest.framework in Frameworks */,
-				C4AA66D91901F4A2005C6927 /* UIKit.framework in Frameworks */,
-				C4AA66D81901F4A2005C6927 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -92,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				C4AA66C31901F4A2005C6927 /* Contextual Menu */,
-				C4AA66DC1901F4A2005C6927 /* Contextual MenuTests */,
 				C4AA66BC1901F4A2005C6927 /* Frameworks */,
 				C4AA66BB1901F4A2005C6927 /* Products */,
 				F3023253A70763A203790B31 /* Pods */,
@@ -103,7 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				C4AA66BA1901F4A2005C6927 /* Contextual Menu.app */,
-				C4AA66D51901F4A2005C6927 /* Contextual MenuTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,24 +117,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C4AA66DC1901F4A2005C6927 /* Contextual MenuTests */ = {
-			isa = PBXGroup;
-			children = (
-				C4AA66E21901F4A2005C6927 /* Contextual_MenuTests.m */,
-				C4AA66DD1901F4A2005C6927 /* Supporting Files */,
-			);
-			path = "Contextual MenuTests";
-			sourceTree = "<group>";
-		};
-		C4AA66DD1901F4A2005C6927 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				C4AA66DE1901F4A2005C6927 /* Contextual MenuTests-Info.plist */,
-				C4AA66DF1901F4A2005C6927 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		F3023253A70763A203790B31 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,24 +149,6 @@
 			productReference = C4AA66BA1901F4A2005C6927 /* Contextual Menu.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C4AA66D41901F4A2005C6927 /* Contextual MenuTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C4AA66E91901F4A2005C6927 /* Build configuration list for PBXNativeTarget "Contextual MenuTests" */;
-			buildPhases = (
-				C4AA66D11901F4A2005C6927 /* Sources */,
-				C4AA66D21901F4A2005C6927 /* Frameworks */,
-				C4AA66D31901F4A2005C6927 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C4AA66DB1901F4A2005C6927 /* PBXTargetDependency */,
-			);
-			name = "Contextual MenuTests";
-			productName = "Contextual MenuTests";
-			productReference = C4AA66D51901F4A2005C6927 /* Contextual MenuTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -224,11 +157,6 @@
 			attributes = {
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = CodeNinja;
-				TargetAttributes = {
-					C4AA66D41901F4A2005C6927 = {
-						TestTargetID = C4AA66B91901F4A2005C6927;
-					};
-				};
 			};
 			buildConfigurationList = C4AA66B51901F4A2005C6927 /* Build configuration list for PBXProject "Contextual Menu" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -243,7 +171,6 @@
 			projectRoot = "";
 			targets = (
 				C4AA66B91901F4A2005C6927 /* Contextual Menu */,
-				C4AA66D41901F4A2005C6927 /* Contextual MenuTests */,
 			);
 		};
 /* End PBXProject section */
@@ -255,14 +182,6 @@
 			files = (
 				C4AA66C81901F4A2005C6927 /* InfoPlist.strings in Resources */,
 				C4AA66D01901F4A2005C6927 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C4AA66D31901F4A2005C6927 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C4AA66E11901F4A2005C6927 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,37 +248,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C4AA66D11901F4A2005C6927 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C4AA66E31901F4A2005C6927 /* Contextual_MenuTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C4AA66DB1901F4A2005C6927 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C4AA66B91901F4A2005C6927 /* Contextual Menu */;
-			targetProxy = C4AA66DA1901F4A2005C6927 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C4AA66C61901F4A2005C6927 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C4AA66C71901F4A2005C6927 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		C4AA66DF1901F4A2005C6927 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C4AA66E01901F4A2005C6927 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -480,48 +375,6 @@
 			};
 			name = Release;
 		};
-		C4AA66EA1901F4A2005C6927 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Contextual Menu.app/Contextual Menu";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Contextual Menu/Contextual Menu-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Contextual MenuTests/Contextual MenuTests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.CodeNinja.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		C4AA66EB1901F4A2005C6927 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Contextual Menu.app/Contextual Menu";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Contextual Menu/Contextual Menu-Prefix.pch";
-				INFOPLIST_FILE = "Contextual MenuTests/Contextual MenuTests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.CodeNinja.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -539,15 +392,6 @@
 			buildConfigurations = (
 				C4AA66E71901F4A2005C6927 /* Debug */,
 				C4AA66E81901F4A2005C6927 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C4AA66E91901F4A2005C6927 /* Build configuration list for PBXNativeTarget "Contextual MenuTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C4AA66EA1901F4A2005C6927 /* Debug */,
-				C4AA66EB1901F4A2005C6927 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

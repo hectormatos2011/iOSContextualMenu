@@ -708,7 +708,8 @@
                 }
             } else {
                 _shouldActivateMenu = NO;
-                [NSException raise:@"BAMContextualMenu's delegate MUST implement contextualMenu:viewForMenuItemAtIndex:" format:nil];
+                NSException *exception = [[NSException alloc] initWithName:NSObjectInaccessibleException reason:@"BAMContextualMenu's delegate MUST implement contextualMenu:viewForMenuItemAtIndex:" userInfo:nil];
+                [exception raise];
             }
             
             //Highlighted Menu Item
