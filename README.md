@@ -15,7 +15,7 @@ it simply add the following line to your Podfile:
 ## Getting Started
 To run the example project; clone the repo, and run `pod install` from the Example directory first. A full blown example is included there. If you don't want to do that, then read ahead!
 
-##Overview
+## Overview
 The iOSContextualMenu uses a similar dataSource/delegate paradigm like UITableView, UICollectionView, UIPickerView, etc.
 
 To implement in your code, follow these steps (This code in these steps is for putting a contextual menu in every cell of a UICollectionView. In this example, I'm adding the contextual menu code inside of my own UICollectionViewCell subclass. Feel free to add a contextual menu to any UIView or a subclass of UIView if this isn't what you want. The following example will also work for UITableView and it's UITableViewCell subclasses. Hooray for abstraction!): 
@@ -73,7 +73,7 @@ Also, feel free to return any UIView you want. One nice thing about BAMContextua
 }
 ```
 
-####Optional Delegate Methods for Further Customization
+#### Optional Delegate Methods for Further Customization
 This is optional, but if you wanted to use a separate view for each menu item's highlighted state, you can use contextualMenu:viewForHighlightedMenuItemAtIndex:.
 
 ```objectivec
