@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         return optionButtons.filter { $0.isSelected }
     }
     
-    let contextualMenu = ContextualMenu(menuType: .fan)
+    let contextualMenu = ContextualMenu(menuType: .radial)
     
     override func viewDidLoad() {
         super.viewDidLoad()

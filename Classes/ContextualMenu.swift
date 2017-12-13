@@ -49,7 +49,6 @@ public class ContextualMenu: UIView {
     fileprivate let startCircleStrokeWidth: CGFloat = 4.0
     fileprivate let topAndBottomTitleLabelPadding: CGFloat = 5.0
     fileprivate let titleLabelPadding: CGFloat = 2.5
-    fileprivate let defaultMaxMenuItemCount: Int = 8
 
     fileprivate let tapGesture = UITapGestureRecognizer()
     fileprivate let longPressGesture = UILongPressGestureRecognizer()
@@ -310,14 +309,13 @@ extension ContextualMenu {
     fileprivate var defaultStartingAngle: CGFloat { return -angleIncrement }
     fileprivate var angleIncrement: CGFloat { return 360.0 / CGFloat(maxMenuItemCount) }
     fileprivate var highlightRadiusOffset: CGFloat { return shouldHighlightOutwards ? 25.0 : 0.0 }
-    fileprivate var maxMenuItemCount: Int { return max(contextualMenuItems.count, defaultMaxMenuItemCount) }
     fileprivate var totalCircleRadius: CGFloat { return startingLocation.x - entireMenuOriginX }
     fileprivate var menuItemsCenterRadius: CGFloat { return totalCircleRadius - biggestMenuItemSize.half }
+    fileprivate var maxMenuItemCount: Int {
+        return menuType == .fan ? max(contextualMenuItems.count, 8) : contextualMenuItems.count
+    }
     fileprivate var currentlyHighlightedItem: ContextualMenuItem? {
         return contextualMenuItems.first { $0.mainItem.isHighlighted }
-    }
-    fileprivate var startingLocationIndexOffset: Int {
-        return Int(round((defaultStartingAngle / 360.0) * CGFloat(defaultMaxMenuItemCount)))
     }
     fileprivate var entireMenuOriginX: CGFloat {
         return startingLocation.x - circleViewSize.half - menuItemDistancePadding - biggestMenuItemSize
