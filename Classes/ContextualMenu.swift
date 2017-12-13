@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+// twitch.tv/krakendev
+// Thanks for subscribing @segiddins! YOU ARE AMAZING AND A GOOD FRAND
 public class ContextualMenu: UIView {
     typealias ContextualMenuItem = (mainItem: ContextualMenuItemView, titleView: UIView, index: Int)
     

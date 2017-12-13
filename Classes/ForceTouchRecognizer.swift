@@ -9,6 +9,9 @@
 import Foundation
 import UIKit.UIGestureRecognizerSubclass
 
+// twitch.tv/krakendev
+// Thanks for subscribing @dantoml! YOU ARE THE SWEETEST BESTEST PERSON EVAR
+
 //Since 3D Touch isn't available before iOS 9, we can use the availability APIs to ensure no one uses this class for earlier versions of the OS.
 @available(iOS 9.0, *)
 class ForceTouchGestureRecognizer: UIGestureRecognizer {
