@@ -6,7 +6,7 @@ Well, you've come to the right place. Hopefully this will help my fellow iOS Dev
 ![Alt text](/Assets/fullCircle.png)&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;![Alt text](/Assets/facebookHighlight.png)&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;![Alt text](/Assets/twitterHighlight.png)
 
 # Installation
-iOSContextualMenu can be included in your project through any of these methods:
+`iOSContextualMenu` can be included in your project through any of these methods:
 
 ## CocoaPods
 [CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
@@ -15,7 +15,7 @@ iOSContextualMenu can be included in your project through any of these methods:
 $ gem install cocoapods
 ```
 
-To integrate iOSContextualMenu through CocoaPods, make sure the `use_frameworks!` line is included in your Podfile (PrediKit is written in Swift so it needs to be brought in as a framework). Make sure these lines are somewhere in your `Podfile`:
+To integrate `iOSContextualMenu` through CocoaPods, make sure the `use_frameworks!` line is included in your Podfile (`iOSContextualMenu` is written in Swift so it needs to be brought in as a framework). Make sure these lines are somewhere in your `Podfile`:
 
 ```ruby
 pod 'iOSContextualMenu'
@@ -27,7 +27,7 @@ Then, run the following command in Terminal where the Podfile is located:
 $ pod install
 ```
 
-Afterwards, whenever you need iOSContextualMenu, add this line to the top of the file it's being used in:
+Afterwards, whenever you need `iOSContextualMenu`, add this line to the top of the file it's being used in:
 
 ```swift
 import iOSContextualMenu
@@ -43,7 +43,7 @@ $ brew update
 $ brew install carthage
 ```
 
-To integrate iOSContextualMenu into your Xcode project using Carthage, specify it in your `Cartfile`:
+To integrate `iOSContextualMenu` into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
 github "hectormatos2011/iOSContextualMenu"
@@ -51,7 +51,7 @@ github "hectormatos2011/iOSContextualMenu"
 
 Run `carthage update` to build the framework and drag the built `iOSContextualMenu.framework` into your Xcode project.
 
-Afterwards, whenever you need iOSContextualMenu, add this line to the top of the file it's being used in:
+Afterwards, whenever you need `iOSContextualMenu`, add this line to the top of the file it's being used in:
 
 ```swift
 import iOSContextualMenu
@@ -110,4 +110,4 @@ Hector Matos, hectormatos2011@gmail.com
 
 # License
 
-iOSContextualMenu is available under the MIT license. See the LICENSE file for more info.
+`iOSContextualMenu` is available under the MIT license. See the LICENSE file for more info.
