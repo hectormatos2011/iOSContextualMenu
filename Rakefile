@@ -58,14 +58,14 @@ task :release do
   sh "rake spec"
  
   puts "* Linting the podspec"
-  sh "pod lib lint"
+  sh "pod lib lint --swift-version 4.0"
 
   # Then release
   sh "git commit #{podspec_path} CHANGELOG.md -m 'Release #{spec_version}' --allow-empty"
   sh "git tag -a #{spec_version} -m 'Release #{spec_version}'"
   sh "git push origin master"
   sh "git push origin --tags"
-  sh "pod push #{repo} #{podspec_path}"
+  sh "pod push #{repo} #{podspec_path} --swift-version 4.0"
 end
 
 # @return [Pod::Version] The version as reported by the Podspec.
