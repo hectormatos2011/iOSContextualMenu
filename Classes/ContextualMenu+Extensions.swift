@@ -21,6 +21,8 @@ import UIKit
     optional func contextualMenu(_ menu: ContextualMenu, didSelectItemAt index: Int)
     @objc(contextualMenu:didHighlightItemAtIndex:)
     optional func contextualMenu(_ menu: ContextualMenu, didHighlightItemAt index: Int)
+    @objc(contextualMenu:didUnhighlightItemAtIndex:)
+    optional func contextualMenu(_ menu: ContextualMenu, didUnhighlightItemAt index: Int)
     @objc(contextualMenu:viewForHighlightedMenuItemAtIndex:)
     optional func contextualMenu(_ menu: ContextualMenu, viewForHighlightedMenuItemAt index: Int) -> UIView?
     @objc(contextualMenu:titleForMenuItemAtIndex:)

@@ -19,9 +19,6 @@ public class ContextualMenu: UIView {
         static let top   = ScreenEdge(rawValue: 1 << 2)
     }
     
-    /// Flag to turn off the ability to activate the popup menu. Defaults to YES but will be NO if menuItems array is nil or empty.
-    @objc public fileprivate(set) var menuIsShowing = true
-    
     /// Defaults to false. This flag determines whether or not the menu item will animate outwards on highlight. Or just stay in place.
     @objc public var shouldHighlightOutwards = false
     
@@ -205,6 +202,12 @@ extension ContextualMenu: MenuItemDelegate {
         let newRadius = menuItemsCenterRadius + radiusOffset
         let newCenter = centerForMenuItem(at: menuItem.index, radius: newRadius)
         animate(item: menuItem, to: newCenter)
+        
+        if menuItemView.isHighlighted {
+            delegate?.contextualMenu?(self, didHighlightItemAt: menuItem.index)
+        } else {
+            delegate?.contextualMenu?(self, didUnhighlightItemAt: menuItem.index)
+        }
     }
     
     func didSelect(menuItemView: ContextualMenuItemView) {
@@ -217,8 +220,8 @@ extension ContextualMenu: MenuItemDelegate {
 // MARK: Animation Functions
 extension ContextualMenu {
     func presentMenuItems() {
-        guard !contextualMenuItems.isEmpty, !menuIsShowing && window != nil else { return }
-        menuIsShowing = true
+        guard delegate?.contextualMenuShouldActivate?(self) != false && !contextualMenuItems.isEmpty && shadowView.alpha == 0.0 && window != nil else { return }
+        
         delegate?.contextualMenuDidActivate?(self)
         shadowView.superview?.bringSubview(toFront: shadowView)
 
@@ -250,7 +253,7 @@ extension ContextualMenu {
     }
 
     @objc func dismissMenuItems() {
-        menuIsShowing = false
+        guard delegate?.contextualMenuShouldDismiss?(self) ?? true else { return }
         
         UIView.animate(withDuration: 0.3, animations: {
             self.shadowView.alpha = 0.0
@@ -264,7 +267,6 @@ extension ContextualMenu {
     }
     
     func animate(item: ContextualMenuItem, to location: CGPoint) {
-        delegate?.contextualMenu?(self, didHighlightItemAt: item.index)
         shadowView.bringSubview(toFront: item.titleView)
 
         let menuItem = item.mainItem
