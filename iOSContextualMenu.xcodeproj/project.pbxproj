@@ -1,0 +1,465 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8253FA691FE1897D00803339 /* iOSContextualMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8253FA5F1FE1897C00803339 /* iOSContextualMenu.framework */; };
+		8253FA6E1FE1897D00803339 /* iOSContextualMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8253FA6D1FE1897D00803339 /* iOSContextualMenuTests.swift */; };
+		8253FA701FE1897D00803339 /* iOSContextualMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 8253FA621FE1897C00803339 /* iOSContextualMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8253FA7E1FE18BD000803339 /* ContextualMenu+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8253FA7A1FE18BCF00803339 /* ContextualMenu+Extensions.swift */; };
+		8253FA7F1FE18BD000803339 /* ContextualMenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8253FA7B1FE18BCF00803339 /* ContextualMenuItemView.swift */; };
+		8253FA801FE18BD000803339 /* ContextualMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8253FA7C1FE18BCF00803339 /* ContextualMenu.swift */; };
+		8253FA811FE18BD000803339 /* ForceTouchRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8253FA7D1FE18BD000803339 /* ForceTouchRecognizer.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8253FA6A1FE1897D00803339 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8253FA561FE1897C00803339 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8253FA5E1FE1897C00803339;
+			remoteInfo = iOSContextualMenu;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8253FA5F1FE1897C00803339 /* iOSContextualMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iOSContextualMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8253FA621FE1897C00803339 /* iOSContextualMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOSContextualMenu.h; sourceTree = "<group>"; };
+		8253FA631FE1897C00803339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8253FA681FE1897D00803339 /* iOSContextualMenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSContextualMenuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8253FA6D1FE1897D00803339 /* iOSContextualMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSContextualMenuTests.swift; sourceTree = "<group>"; };
+		8253FA6F1FE1897D00803339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8253FA7A1FE18BCF00803339 /* ContextualMenu+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ContextualMenu+Extensions.swift"; path = "Classes/ContextualMenu+Extensions.swift"; sourceTree = SOURCE_ROOT; };
+		8253FA7B1FE18BCF00803339 /* ContextualMenuItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContextualMenuItemView.swift; path = Classes/ContextualMenuItemView.swift; sourceTree = SOURCE_ROOT; };
+		8253FA7C1FE18BCF00803339 /* ContextualMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContextualMenu.swift; path = Classes/ContextualMenu.swift; sourceTree = SOURCE_ROOT; };
+		8253FA7D1FE18BD000803339 /* ForceTouchRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForceTouchRecognizer.swift; path = Classes/ForceTouchRecognizer.swift; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8253FA5B1FE1897C00803339 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8253FA651FE1897D00803339 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8253FA691FE1897D00803339 /* iOSContextualMenu.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8253FA551FE1897C00803339 = {
+			isa = PBXGroup;
+			children = (
+				8253FA611FE1897C00803339 /* iOSContextualMenu */,
+				8253FA6C1FE1897D00803339 /* Tests */,
+				8253FA601FE1897C00803339 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8253FA601FE1897C00803339 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8253FA5F1FE1897C00803339 /* iOSContextualMenu.framework */,
+				8253FA681FE1897D00803339 /* iOSContextualMenuTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8253FA611FE1897C00803339 /* iOSContextualMenu */ = {
+			isa = PBXGroup;
+			children = (
+				8253FA7C1FE18BCF00803339 /* ContextualMenu.swift */,
+				8253FA7A1FE18BCF00803339 /* ContextualMenu+Extensions.swift */,
+				8253FA7B1FE18BCF00803339 /* ContextualMenuItemView.swift */,
+				8253FA7D1FE18BD000803339 /* ForceTouchRecognizer.swift */,
+				8253FA621FE1897C00803339 /* iOSContextualMenu.h */,
+				8253FA631FE1897C00803339 /* Info.plist */,
+			);
+			path = iOSContextualMenu;
+			sourceTree = "<group>";
+		};
+		8253FA6C1FE1897D00803339 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				8253FA791FE18B9000803339 /* iOSContextualMenuTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		8253FA791FE18B9000803339 /* iOSContextualMenuTests */ = {
+			isa = PBXGroup;
+			children = (
+				8253FA6D1FE1897D00803339 /* iOSContextualMenuTests.swift */,
+				8253FA6F1FE1897D00803339 /* Info.plist */,
+			);
+			path = iOSContextualMenuTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8253FA5C1FE1897C00803339 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8253FA701FE1897D00803339 /* iOSContextualMenu.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8253FA5E1FE1897C00803339 /* iOSContextualMenu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8253FA731FE1897D00803339 /* Build configuration list for PBXNativeTarget "iOSContextualMenu" */;
+			buildPhases = (
+				8253FA5A1FE1897C00803339 /* Sources */,
+				8253FA5B1FE1897C00803339 /* Frameworks */,
+				8253FA5C1FE1897C00803339 /* Headers */,
+				8253FA5D1FE1897C00803339 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOSContextualMenu;
+			productName = iOSContextualMenu;
+			productReference = 8253FA5F1FE1897C00803339 /* iOSContextualMenu.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8253FA671FE1897D00803339 /* iOSContextualMenuTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8253FA761FE1897D00803339 /* Build configuration list for PBXNativeTarget "iOSContextualMenuTests" */;
+			buildPhases = (
+				8253FA641FE1897D00803339 /* Sources */,
+				8253FA651FE1897D00803339 /* Frameworks */,
+				8253FA661FE1897D00803339 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8253FA6B1FE1897D00803339 /* PBXTargetDependency */,
+			);
+			name = iOSContextualMenuTests;
+			productName = iOSContextualMenuTests;
+			productReference = 8253FA681FE1897D00803339 /* iOSContextualMenuTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8253FA561FE1897C00803339 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Hector Matos";
+				TargetAttributes = {
+					8253FA5E1FE1897C00803339 = {
+						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+					8253FA671FE1897D00803339 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 8253FA591FE1897C00803339 /* Build configuration list for PBXProject "iOSContextualMenu" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8253FA551FE1897C00803339;
+			productRefGroup = 8253FA601FE1897C00803339 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8253FA5E1FE1897C00803339 /* iOSContextualMenu */,
+				8253FA671FE1897D00803339 /* iOSContextualMenuTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8253FA5D1FE1897C00803339 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8253FA661FE1897D00803339 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8253FA5A1FE1897C00803339 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8253FA7E1FE18BD000803339 /* ContextualMenu+Extensions.swift in Sources */,
+				8253FA801FE18BD000803339 /* ContextualMenu.swift in Sources */,
+				8253FA7F1FE18BD000803339 /* ContextualMenuItemView.swift in Sources */,
+				8253FA811FE18BD000803339 /* ForceTouchRecognizer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8253FA641FE1897D00803339 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8253FA6E1FE1897D00803339 /* iOSContextualMenuTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8253FA6B1FE1897D00803339 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8253FA5E1FE1897C00803339 /* iOSContextualMenu */;
+			targetProxy = 8253FA6A1FE1897D00803339 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8253FA711FE1897D00803339 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8253FA721FE1897D00803339 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8253FA741FE1897D00803339 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = iOSContextualMenu/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.krakendev.iOSContextualMenu;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8253FA751FE1897D00803339 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = iOSContextualMenu/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.krakendev.iOSContextualMenu;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8253FA771FE1897D00803339 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Tests/iOSContextualMenuTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.krakendev.iOSContextualMenuTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8253FA781FE1897D00803339 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Tests/iOSContextualMenuTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.krakendev.iOSContextualMenuTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8253FA591FE1897C00803339 /* Build configuration list for PBXProject "iOSContextualMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8253FA711FE1897D00803339 /* Debug */,
+				8253FA721FE1897D00803339 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8253FA731FE1897D00803339 /* Build configuration list for PBXNativeTarget "iOSContextualMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8253FA741FE1897D00803339 /* Debug */,
+				8253FA751FE1897D00803339 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8253FA761FE1897D00803339 /* Build configuration list for PBXNativeTarget "iOSContextualMenuTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8253FA771FE1897D00803339 /* Debug */,
+				8253FA781FE1897D00803339 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8253FA561FE1897C00803339 /* Project object */;
+}
