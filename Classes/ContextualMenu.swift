@@ -21,7 +21,7 @@ public class ContextualMenu: UIView {
     
     /// Defaults to false. This flag determines whether or not the menu item will animate outwards on highlight. Or just stay in place.
     @objc public var shouldHighlightOutwards = false
-    
+
     /// Distance of each menuItem from the edge of the startingCircle (the thing that indicates your touch). Lower values bring all the menu items closer to the center and higher values push them further from the center. Defaults to 30 pts.
     @objc public var menuItemDistancePadding: CGFloat = 30.0
     
@@ -30,7 +30,12 @@ public class ContextualMenu: UIView {
     
     /// Set this to switch between ways to activate the menu later on.
     @objc public var activateOption: ActivateOption = .onTap {
-        didSet { updateRecognizers() }
+        didSet {
+            updateRecognizers()
+            if activateOption == .asSoonAsPossible, let superview = superview, window != nil {
+                presentMenuItems(at: superview.convert(CGPoint(x: superview.bounds.width.half, y: superview.bounds.height.half), to: nil))
+            }
+        }
     }
     
     /// Defaults to Helvetica Neue Thin (13pt). If you use contextualMenu(_:titleForMenuItemAt:), this will be the font of the label created above each menu item that's shown when the menuItem is highlighted.
@@ -101,6 +106,10 @@ public class ContextualMenu: UIView {
         }
         shadowView.frame = rootController?.view.bounds ?? .zero
         rootController?.view.addSubview(shadowView)
+        
+        if let superview = superview, activateOption == .asSoonAsPossible {
+            presentMenuItems(at: superview.convert(CGPoint(x: superview.bounds.width.half, y: superview.bounds.height.half), to: nil))
+        }
     }
     
     public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
@@ -151,10 +160,7 @@ extension ContextualMenu {
     @objc func handleGesture(recognizer: UIGestureRecognizer) {
         let touchLocation = recognizer.location(in: nil)
         if recognizer.state == .began || recognizer is UITapGestureRecognizer {
-            startingLocation = touchLocation
-            startCircleView.center = startingLocation
-            reloadData()
-            presentMenuItems()
+            presentMenuItems(at: touchLocation)
         } else if recognizer.state == .changed {
             handleDrag(with: touchLocation)
         } else if recognizer.state == .ended || recognizer.state == .cancelled {
@@ -219,7 +225,11 @@ extension ContextualMenu: MenuItemDelegate {
 
 // MARK: Animation Functions
 extension ContextualMenu {
-    func presentMenuItems() {
+    func presentMenuItems(at location: CGPoint) {
+        startingLocation = location
+        startCircleView.center = location
+        reloadData()
+        
         guard delegate?.contextualMenuShouldActivate?(self) != false && !contextualMenuItems.isEmpty && shadowView.alpha == 0.0 && window != nil else { return }
         
         delegate?.contextualMenuDidActivate?(self)
