@@ -54,10 +54,6 @@ extension CGFloat {
     var half: CGFloat { return self / 2.0 }
 }
 
-extension String {
-    var isValid: Bool { return self != nil && !self.isEmpty }
-}
-
 extension CGRect {
     static func squareRectFrom(size: CGFloat) -> CGRect {
         return CGRect(origin: .zero, size: CGSize(width: size, height: size))

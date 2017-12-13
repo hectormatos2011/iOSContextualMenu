@@ -493,7 +493,7 @@ extension ContextualMenu {
     }
     
     func defaultTitleViewForMenuItem(at index: Int) -> UIView {
-        guard let text = delegate?.contextualMenu?(self, titleForMenuItemAt: index), text.isValid else {
+        guard let text = delegate?.contextualMenu?(self, titleForMenuItemAt: index), !text.isEmpty else {
             return UIView(frame: .squareRectFrom(size: 1.0), backgroundColor: .clear)
         }
         
