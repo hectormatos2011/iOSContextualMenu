@@ -41,7 +41,6 @@ class ContextualMenuItemView: UIView {
         
         highlightedView.alpha = 0.0
         clipsToBounds = true
-        isUserInteractionEnabled = false
         addSubview(contentView)
         addSubview(highlightedView)
         addSubview(overlayButton)
